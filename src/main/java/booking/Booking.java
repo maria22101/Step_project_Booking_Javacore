@@ -3,17 +3,19 @@ package booking;
 import java.util.Objects;
 
 public class Booking {
+    private int bookingId;
     private String flightId;
-    private String destination;
-    private long departureTime;
     private String passengerName;
     private String passengerSurname;
-    private boolean isBookingValid = true;
+    private int passengersNumber;
+    private boolean isBookingValid;
 
-    public Booking(String flightId, String passengerName, String passengerSurname) {
+    public Booking(String flightId, String passengerName, String passengerSurname, int passengersNumber) {
         this.flightId = flightId;
         this.passengerName = passengerName;
         this.passengerSurname = passengerSurname;
+        this.passengersNumber = passengersNumber;
+        isBookingValid = true;
     }
 
     public String getFlightId() {
@@ -22,22 +24,6 @@ public class Booking {
 
     public void setFlightId(String flightId) {
         this.flightId = flightId;
-    }
-
-    public String getDestination() {
-        return destination;
-    }
-
-    public void setDestination(String destination) {
-        this.destination = destination;
-    }
-
-    public long getDepartureTime() {
-        return departureTime;
-    }
-
-    public void setDepartureTime(long departureTime) {
-        this.departureTime = departureTime;
     }
 
     public String getPassengerName() {
@@ -64,26 +50,43 @@ public class Booking {
         isBookingValid = bookingValid;
     }
 
+    public int getBookingId() {
+        return bookingId;
+    }
+
+    public void setBookingId(int bookingId) {
+        this.bookingId = bookingId;
+    }
+
+    public int getPassengersNumber() {
+        return passengersNumber;
+    }
+
+    public void setPassengersNumber(int passengersNumber) {
+        this.passengersNumber = passengersNumber;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Booking booking = (Booking) o;
-        return isBookingValid == booking.isBookingValid &&
-                flightId.equals(booking.flightId) &&
-                passengerName.equals(booking.passengerName) &&
-                passengerSurname.equals(booking.passengerSurname);
+        return bookingId == booking.bookingId &&
+                passengersNumber == booking.passengersNumber &&
+                isBookingValid == booking.isBookingValid &&
+                Objects.equals(flightId, booking.flightId) &&
+                Objects.equals(passengerName, booking.passengerName) &&
+                Objects.equals(passengerSurname, booking.passengerSurname);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(flightId, passengerName, passengerSurname);
+        return Objects.hash(bookingId, flightId, passengerName, passengerSurname, passengersNumber, isBookingValid);
     }
 
     @Override
     public String toString() {
-        return flightId + "\t" + destination + "\t" + departureTime + "\t" +
-                passengerName + "\t" + passengerSurname + "\t" + isBookingValid +"\n"
+        return flightId + "\t" +  passengerName + "\t" + passengerSurname + "\t" + isBookingValid +"\n"
                 + "---------------------------------------\n";
-    }// continue with the date-time formatting to "dd-mm-yyyy hour:minutes
+    }// continue with the date-time formatting to "dd-mm-yyyy hour:minutes, start with booking ID
 }
