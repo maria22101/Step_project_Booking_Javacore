@@ -1,6 +1,15 @@
 package console;
 
+import booking.BookingController;
+import flight.FlightController;
+
+import java.util.Scanner;
+
 public class Main {
+
+    static FlightController flightController = new FlightController();
+    static BookingController bookingController = new BookingController();
+
     static void printMenu() {
         System.out.println(
                 "Введите интересующий Вас пункт меню:\n" +
@@ -15,6 +24,20 @@ public class Main {
 
     public static void main(String[] args) {
         printMenu();
+        Scanner scanner = new Scanner(System.in);
+        int userChoice = scanner.nextInt();
 
+        while (userChoice != 6) {
+            switch (userChoice) {
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                case 5:
+                case 6:
+                default:
+                    System.out.println("User has not made his decision");
+            }
+        }
     }
 }
