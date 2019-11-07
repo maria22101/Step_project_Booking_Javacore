@@ -2,6 +2,7 @@ package flight;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class FlightDAOImpl implements FlightDAO {
     private List<Flight> listFlight = new ArrayList<>();
@@ -10,6 +11,19 @@ public class FlightDAOImpl implements FlightDAO {
     public void createFlight(String flightId, String destination, long departureTime, int freeSeats) {
         Flight flight = new Flight(flightId, destination, departureTime, freeSeats);
         listFlight.add(flight);
+    }
+
+    @Override
+    public void generateFlights(Scanner scanner) {
+        while (scanner.hasNext()) {
+            String flightId = scanner.nextLine();
+            String destination = scanner.nextLine();
+            long departureTime = Long.valueOf(scanner.nextLine());
+            int freeSeats = Integer.valueOf(scanner.nextLine());
+            Flight flight = new Flight(flightId, destination, departureTime, freeSeats);
+
+            listFlight.add(flight);
+        }
     }
 
     @Override

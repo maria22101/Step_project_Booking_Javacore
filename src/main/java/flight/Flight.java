@@ -65,8 +65,8 @@ public class Flight {
 
     @Override
     public String toString() {
-        return flightId + "\t" + destination + "\t" + departureTime + "\t" + freeSeats +"\n"
-                + "------------------------\n";
+        return flightId + "\t" + destination + "\t" + departureTime + "\t" + freeSeats + " seats available" +"\n"
+                + "------------------------------------------------";
     }// continue with the date-time formatting to "dd-mm-yyyy hour:minutes
 
     //to try (remove once tested):

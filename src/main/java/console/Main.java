@@ -1,8 +1,13 @@
 package console;
 
 import booking.BookingController;
+import flight.Flight;
 import flight.FlightController;
 
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class Main {
@@ -22,10 +27,23 @@ public class Main {
         );
     }
 
+    static void copyFlightsFromFile() {
+        try {
+            Scanner scanner = new Scanner(new FileReader("C:/Users/HP/IdeaProjects/Step_project_Booking_Javacore/src/main/java/flight/flightsDatabase.txt"));
+            flightController.generateFlights(scanner);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) {
         printMenu();
+        copyFlightsFromFile();
+
         Scanner scanner = new Scanner(System.in);
         int userChoice = scanner.nextInt();
+
+
 
         while (userChoice != 6) {
             switch (userChoice) {

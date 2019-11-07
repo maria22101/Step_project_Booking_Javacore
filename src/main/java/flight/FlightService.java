@@ -1,6 +1,7 @@
 package flight;
 
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class FlightService {
@@ -8,6 +9,10 @@ public class FlightService {
 
     public void createNewFlight(String flightId, String destination, long departureTime, int freeSeats) {
         flightDAO.createFlight(flightId, destination, departureTime, freeSeats);
+    }
+
+    public void generateFlights(Scanner scanner) {
+        flightDAO.generateFlights(scanner);
     }
 
     public List<Flight> getAllFlights() {
