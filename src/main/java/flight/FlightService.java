@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 public class FlightService {
     private FlightDAO flightDAO = new FlightDAOImpl();
 
-    public void createNewFlight(String flightId, String destination, long departureTime, int freeSeats) {
+    public void createNewFlight(String flightId, String destination, String departureTime, int freeSeats) {
         flightDAO.createFlight(flightId, destination, departureTime, freeSeats);
     }
 
@@ -35,18 +35,18 @@ public class FlightService {
         getAllFlights().stream().forEach(System.out::println);
     }
 
-    public List<Flight> findFlights(String destination, long departureTime, int passengersNumber) {
-        return getAllFlights()
-                .stream()
-                .filter(f -> f.getDestination().equals(destination)
-                        && f.getDepartureTime() == departureTime
-                        && f.getFreeSeets() >= passengersNumber)
-                .collect(Collectors.toList());
-    }
+//    public List<Flight> findFlights(String destination, long departureTime, int passengersNumber) {
+//        return getAllFlights()
+//                .stream()
+//                .filter(f -> f.getDestination().equals(destination)
+//                        && f.getDepartureTime() == departureTime
+//                        && f.getFreeSeets() >= passengersNumber)
+//                .collect(Collectors.toList());
+//    }
 
-    public void displayFoundFlights(String destination, long departureTime, int passengersNumber) {
-        findFlights(destination, departureTime, passengersNumber)
-                .stream()
-                .forEach(System.out::print);
-    }
+//    public void displayFoundFlights(String destination, long departureTime, int passengersNumber) {
+//        findFlights(destination, departureTime, passengersNumber)
+//                .stream()
+//                .forEach(System.out::print);
+//    }
 }

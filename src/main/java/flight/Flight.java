@@ -1,18 +1,28 @@
 package flight;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Objects;
 
 public class Flight {
     private String flightId;
     private String destination;
-    private long departureTime;
+    private Date departureTime;
     private int freeSeats;
 
 
-    public Flight(String flightId, String destination, long departureTime, int freeSeats) {
+    public Flight(String flightId, String destination, String departureTime, int freeSeats) {
         this.flightId = flightId;
         this.destination = destination;
-        this.departureTime = departureTime;
+
+        SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy hh:mm");
+        try{
+            this.departureTime = formatter.parse(departureTime);
+        }catch (ParseException e) {
+            e.printStackTrace();
+        }
+
         this.freeSeats = freeSeats;
     }
 
@@ -32,20 +42,20 @@ public class Flight {
         this.destination = destination;
     }
 
-    public long getDepartureTime() {
+    public Date getDepartureTime() {
         return departureTime;
     }
 
-    public void setDepartureTime(long departureTime) {
+    public void setDepartureTime(Date departureTime) {
         this.departureTime = departureTime;
     }
 
-    public int getFreeSeets() {
+    public int getFreeSeats() {
         return freeSeats;
     }
 
-    public void setFreeSeets(int freeSeets) {
-        this.freeSeats = freeSeets;
+    public void setFreeSeats(int freeSeats) {
+        this.freeSeats = freeSeats;
     }
 
     @Override
@@ -53,9 +63,9 @@ public class Flight {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Flight flight = (Flight) o;
-        return departureTime == flight.departureTime &&
-                flightId.equals(flight.flightId) &&
-                destination.equals(flight.destination);
+        return flightId.equals(flight.flightId) &&
+                destination.equals(flight.destination) &&
+                departureTime.equals(flight.departureTime);
     }
 
     @Override
@@ -65,13 +75,10 @@ public class Flight {
 
     @Override
     public String toString() {
-        return flightId + "\t" + destination + "\t" + departureTime + "\t" + freeSeats + " seats available" +"\n"
-                + "------------------------------------------------";
-    }// continue with the date-time formatting to "dd-mm-yyyy hour:minutes
-
-    //to try (remove once tested):
-    public static void main(String[] args) {
-        Flight f1 = new Flight("PS1", "Paris", 00000023233L, 80);
-        System.out.println(f1);
+        return flightId + "\t" +
+                destination + "\t" +
+                new SimpleDateFormat("dd.MM.yyyy hh:mm").format(departureTime) + "\t" +
+                freeSeats + " seats available" +"\n"
+                + "--------------------------------------------------------------";
     }
 }

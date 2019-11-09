@@ -5,9 +5,6 @@ import flight.Flight;
 import flight.FlightController;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class Main {
@@ -39,23 +36,25 @@ public class Main {
     public static void main(String[] args) {
         printMenu();
         copyFlightsFromFile();
-
-        Scanner scanner = new Scanner(System.in);
-        int userChoice = scanner.nextInt();
-
-
-
-        while (userChoice != 6) {
-            switch (userChoice) {
-                case 1:
-                case 2:
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                default:
-                    System.out.println("User has not made his decision");
-            }
+        for (Flight f : flightController.getAllFlights()) {
+            System.out.println(f.toString());
         }
+
+//        Scanner scanner = new Scanner(System.in);
+//        int userChoice = scanner.nextInt();
+
+
+//        while (userChoice != 6) {
+//            switch (userChoice) {
+//                case 1:
+//                case 2:
+//                case 3:
+//                case 4:
+//                case 5:
+//                case 6:
+//                default:
+//                    System.out.println("User has not made his decision");
+//            }
+//        }
     }
 }

@@ -8,7 +8,7 @@ public class FlightDAOImpl implements FlightDAO {
     private List<Flight> listFlight = new ArrayList<>();
 
     @Override
-    public void createFlight(String flightId, String destination, long departureTime, int freeSeats) {
+    public void createFlight(String flightId, String destination, String departureTime, int freeSeats) {
         Flight flight = new Flight(flightId, destination, departureTime, freeSeats);
         listFlight.add(flight);
     }
@@ -18,8 +18,8 @@ public class FlightDAOImpl implements FlightDAO {
         while (scanner.hasNext()) {
             String flightId = scanner.nextLine();
             String destination = scanner.nextLine();
-            long departureTime = Long.valueOf(scanner.nextLine());
-            int freeSeats = Integer.valueOf(scanner.nextLine());
+            String departureTime = scanner.nextLine();
+            int freeSeats = Integer.parseInt(scanner.nextLine());
             Flight flight = new Flight(flightId, destination, departureTime, freeSeats);
 
             listFlight.add(flight);

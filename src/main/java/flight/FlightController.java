@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class FlightController {
     private FlightService flightService = new FlightService();
 
-    public void createNewFlight(String flightId, String destination, long departureTime, int freeSeats) {
+    public void createNewFlight(String flightId, String destination, String departureTime, int freeSeats) {
         flightService.createNewFlight(flightId, destination, departureTime, freeSeats);
     }
 
@@ -34,11 +34,11 @@ public class FlightController {
         flightService.displayAllFlights();
     }
 
-    public List<Flight> findFlights(String destination, long departureTime, int passengersNumber) {
-        return flightService.findFlights(destination, departureTime, passengersNumber);
-    }
+//    public List<Flight> findFlights(String destination, long departureTime, int passengersNumber) {
+//        return flightService.findFlights(destination, departureTime, passengersNumber);
+//    }
 
-    public void displayFoundFlights(String destination, long departureTime, int passengersNumber) {
-        flightService.displayFoundFlights(destination, departureTime, passengersNumber);
-    }
+//    public void displayFoundFlights(String destination, long departureTime, int passengersNumber) {
+//        flightService.displayFoundFlights(destination, departureTime, passengersNumber);
+//    }
 }
