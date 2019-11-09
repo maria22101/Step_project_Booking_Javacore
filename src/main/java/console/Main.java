@@ -99,7 +99,7 @@ public class Main {
                     System.out.print("Введите Вашу фамилию: ");
                     String userSurname = scan5.nextLine();
 
-                    bookingController.displayUserBookings(userName, userSurname);
+                    bookingController.displayUserBookings(userName, userSurname, flightController);
                     break;
                 case 6:
                     break;

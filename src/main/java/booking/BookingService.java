@@ -1,5 +1,8 @@
 package booking;
 
+import flight.FlightController;
+import flight.FlightService;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -29,9 +32,14 @@ public class BookingService {
                 .collect(Collectors.toList());
     }
 
-    public void displayUserBookings(String passengerName, String passengerSurname) {
+    public void displayUserBookings(String passengerName, String passengerSurname, FlightController flightController) {
         getUserBookings(passengerName, passengerSurname)
                 .stream()
-                .forEach(System.out::println);
+                .forEach(booking -> {
+                    System.out.print(booking);
+                    System.out.print(flightController.getFlightById(booking.getFlightId()).toShortString() + "\t");
+                    System.out.println(booking.isBookingValid() ? "booking status: VALID" : "booking status: CANCELLED");
+                    System.out.println("--------------------------------------------------------------------------------");
+                });
     }
 }

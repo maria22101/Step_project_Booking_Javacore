@@ -75,7 +75,9 @@ public class Booking {
 
     @Override
     public String toString() {
-        return flightId + "\t" +  passengerName + "\t" + passengerSurname + "\t" + isBookingValid +"\n"
-                + "---------------------------------------\n";
-    }// continue with the date-time formatting to "dd-mm-yyyy hour:minutes, start with booking ID
+        return  bookingId + "\t" +
+                passengerName + " " +
+                passengerSurname + "\t" +
+                flightId + "\t";
+    }
 }

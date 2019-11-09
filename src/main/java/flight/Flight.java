@@ -81,4 +81,9 @@ public class Flight {
                 freeSeats + " seats available" +"\n"
                 + "--------------------------------------------------------------";
     }
+
+    public String toShortString() {
+        return destination + "\t" +
+                new SimpleDateFormat("dd.MM.yyyy hh:mm").format(departureTime);
+    }
 }
