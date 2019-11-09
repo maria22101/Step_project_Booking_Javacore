@@ -42,11 +42,14 @@ public class FlightDAOImpl implements FlightDAO {
     }
 
     @Override
-    public boolean deleteFlight(int flightToDeleteId) {
-        if (flightToDeleteId < listFlight.size()) {
-            listFlight.remove(flightToDeleteId);
-            return true;
-        } else return false;
+    public boolean deleteFlight(String flightToDeleteId) {
+        for (Flight flight : listFlight) {
+            if (flight.getFlightId().equals(flightToDeleteId)) {
+                listFlight.remove(flightToDeleteId);
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override

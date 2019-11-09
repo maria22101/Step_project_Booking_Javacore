@@ -24,7 +24,7 @@ public class FlightService {
         return flightDAO.getFlightById(id);
     }
 
-    public boolean deleteFlightById(int id) {
+    public boolean deleteFlightById(String id) {
         return flightDAO.deleteFlight(id);
     }
 

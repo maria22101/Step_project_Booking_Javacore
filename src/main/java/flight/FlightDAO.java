@@ -8,6 +8,6 @@ public interface FlightDAO {
     List<Flight> getAll();
     void generateFlights(Scanner scanner);
     Flight getFlightById(String id);
-    boolean deleteFlight(int flightToDeleteId);
+    boolean deleteFlight(String flightToDeleteId);
     boolean deleteFlight(Flight flightToDelete);
 }

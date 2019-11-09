@@ -22,7 +22,7 @@ public class FlightController {
         return flightService.getFlightById(id);
     }
 
-    public boolean deleteFlightById(int id) {
+    public boolean deleteFlightById(String id) {
         return flightService.deleteFlightById(id);
     }
 
