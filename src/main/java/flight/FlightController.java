@@ -34,11 +34,11 @@ public class FlightController {
         flightService.displayAllFlights();
     }
 
-//    public List<Flight> findFlights(String destination, long departureTime, int passengersNumber) {
-//        return flightService.findFlights(destination, departureTime, passengersNumber);
-//    }
+    public List<Flight> requestFlights(String destination, String departureDate, int passengersNumber) {
+        return flightService.requestFlights(destination, departureDate, passengersNumber);
+    }
 
-//    public void displayFoundFlights(String destination, long departureTime, int passengersNumber) {
-//        flightService.displayFoundFlights(destination, departureTime, passengersNumber);
-//    }
+    public void displayRequestedFlights(String destination, String departureDate, int passengersNumber) {
+        flightService.displayRequestedFlights(destination, departureDate, passengersNumber);
+    }
 }

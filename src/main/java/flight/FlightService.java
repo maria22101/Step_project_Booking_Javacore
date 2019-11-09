@@ -1,5 +1,6 @@
 package flight;
 
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
@@ -35,18 +36,19 @@ public class FlightService {
         getAllFlights().stream().forEach(System.out::println);
     }
 
-//    public List<Flight> findFlights(String destination, long departureTime, int passengersNumber) {
-//        return getAllFlights()
-//                .stream()
-//                .filter(f -> f.getDestination().equals(destination)
-//                        && f.getDepartureTime() == departureTime
-//                        && f.getFreeSeets() >= passengersNumber)
-//                .collect(Collectors.toList());
-//    }
+    public List<Flight> requestFlights(String destination, String departureDate, int passengersNumber) {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy hh:mm");
+        return getAllFlights()
+                .stream()
+                .filter(f -> f.getDestination().equals(destination)
+                        && formatter.format(f.getDepartureTime()).substring(0, 10).equals(departureDate)
+                        && f.getFreeSeats() >= passengersNumber)
+                .collect(Collectors.toList());
+    }
 
-//    public void displayFoundFlights(String destination, long departureTime, int passengersNumber) {
-//        findFlights(destination, departureTime, passengersNumber)
-//                .stream()
-//                .forEach(System.out::print);
-//    }
+    public void displayRequestedFlights(String destination, String departureDate, int passengersNumber) {
+        requestFlights(destination, departureDate, passengersNumber)
+                .stream()
+                .forEach(System.out::println);
+    }
 }

@@ -36,9 +36,6 @@ public class Main {
     public static void main(String[] args) {
         printMenu();
         copyFlightsFromFile();
-        for (Flight f : flightController.getAllFlights()) {
-            System.out.println(f.toString());
-        }
 
 //        Scanner scanner = new Scanner(System.in);
 //        int userChoice = scanner.nextInt();
