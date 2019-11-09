@@ -32,10 +32,13 @@ public class FlightDAOImpl implements FlightDAO {
     }
 
     @Override
-    public Flight getFlightById(int id) {
-        if (id < listFlight.size()) {
-            return listFlight.get(id);
-        } else return null;
+    public Flight getFlightById(String id) {
+        for (Flight flight : listFlight) {
+            if (flight.getFlightId().equals(id)) {
+                return flight;
+            }
+        }
+        return null;
     }
 
     @Override

@@ -20,7 +20,7 @@ public class Main {
                         "3. Поиск и бронировка рейса\n" +
                         "4. Отменить бронирование\n" +
                         "5. Мои рейсы\n" +
-                        "6. Выход (завершение работы приложения)\n"
+                        "6. Выход (завершение работы приложения)"
         );
     }
 
@@ -37,21 +37,36 @@ public class Main {
         printMenu();
         copyFlightsFromFile();
 
-//        Scanner scanner = new Scanner(System.in);
-//        int userChoice = scanner.nextInt();
+        Scanner scanner = new Scanner(System.in);
+        int userChoice = scanner.nextInt();
 
+        while (userChoice != 6) {
+            switch (userChoice) {
+                case 1:
+                    flightController.displayAllFlights();
+                    break;
 
-//        while (userChoice != 6) {
-//            switch (userChoice) {
-//                case 1:
-//                case 2:
-//                case 3:
-//                case 4:
-//                case 5:
-//                case 6:
-//                default:
-//                    System.out.println("User has not made his decision");
-//            }
-//        }
+                case 2:
+                    System.out.print("Введите ID рейса: ");
+                    Scanner scan = new Scanner(System.in);
+                    String userFlightIdChoice = scan.nextLine();
+                    System.out.println(flightController.getFlightById(userFlightIdChoice));
+                    break;
+
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    break;
+                default:
+                    System.out.println("User has not made his decision");
+            }
+
+            printMenu();
+            userChoice = scanner.nextInt();
+        }
     }
 }

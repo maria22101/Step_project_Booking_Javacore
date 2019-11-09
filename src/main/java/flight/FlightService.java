@@ -20,7 +20,7 @@ public class FlightService {
         return flightDAO.getAll();
     }
 
-    public Flight getFlightById(int id) {
+    public Flight getFlightById(String id) {
         return flightDAO.getFlightById(id);
     }
 

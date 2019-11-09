@@ -18,7 +18,7 @@ public class FlightController {
         return flightService.getAllFlights();
     }
 
-    public Flight getFlightById(int id) {
+    public Flight getFlightById(String id) {
         return flightService.getFlightById(id);
     }
 
@@ -30,7 +30,7 @@ public class FlightController {
         return flightService.deleteFlight(flight);
     }
 
-    void displayAllFlights() {
+    public void displayAllFlights() {
         flightService.displayAllFlights();
     }
 

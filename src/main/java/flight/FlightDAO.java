@@ -7,7 +7,7 @@ public interface FlightDAO {
     void createFlight(String flightId, String destination, String departureTime, int freeSeats);
     List<Flight> getAll();
     void generateFlights(Scanner scanner);
-    Flight getFlightById(int id);
+    Flight getFlightById(String id);
     boolean deleteFlight(int flightToDeleteId);
     boolean deleteFlight(Flight flightToDelete);
 }
