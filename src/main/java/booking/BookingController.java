@@ -6,8 +6,8 @@ import java.util.stream.Collectors;
 public class BookingController {
     private BookingService bookingService = new BookingService();
 
-    void createBooking(String flightId, String passengerName, String passengerSurname, int passengersNumber) {
-        bookingService.createBooking(flightId, passengerName, passengerSurname, passengersNumber);
+    public void createBooking(String flightId, String passengerName, String passengerSurname) {
+        bookingService.createBooking(flightId, passengerName, passengerSurname);
     }
 
     public List<Booking> getAllBookings() {
@@ -24,5 +24,9 @@ public class BookingController {
 
     List<Booking> getUserBookings(String passengerName, String passengerSurname) {
         return bookingService.getUserBookings(passengerName, passengerSurname);
+    }
+
+    public void displayUserBookings(String passengerName, String passengerSurname) {
+        bookingService.displayUserBookings(passengerName, passengerSurname);
     }
 }

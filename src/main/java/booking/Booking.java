@@ -7,14 +7,12 @@ public class Booking {
     private String flightId;
     private String passengerName;
     private String passengerSurname;
-    private int passengersNumber;
     private boolean isBookingValid;
 
-    public Booking(String flightId, String passengerName, String passengerSurname, int passengersNumber) {
+    public Booking(String flightId, String passengerName, String passengerSurname) {
         this.flightId = flightId;
         this.passengerName = passengerName;
         this.passengerSurname = passengerSurname;
-        this.passengersNumber = passengersNumber;
         isBookingValid = true;
     }
 
@@ -58,21 +56,12 @@ public class Booking {
         this.bookingId = bookingId;
     }
 
-    public int getPassengersNumber() {
-        return passengersNumber;
-    }
-
-    public void setPassengersNumber(int passengersNumber) {
-        this.passengersNumber = passengersNumber;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Booking booking = (Booking) o;
         return bookingId == booking.bookingId &&
-                passengersNumber == booking.passengersNumber &&
                 isBookingValid == booking.isBookingValid &&
                 Objects.equals(flightId, booking.flightId) &&
                 Objects.equals(passengerName, booking.passengerName) &&
@@ -81,7 +70,7 @@ public class Booking {
 
     @Override
     public int hashCode() {
-        return Objects.hash(bookingId, flightId, passengerName, passengerSurname, passengersNumber, isBookingValid);
+        return Objects.hash(bookingId, flightId, passengerName, passengerSurname, isBookingValid);
     }
 
     @Override

@@ -48,16 +48,58 @@ public class Main {
 
                 case 2:
                     System.out.print("Введите ID рейса: ");
-                    Scanner scan = new Scanner(System.in);
-                    String userFlightIdChoice = scan.nextLine();
+                    Scanner scan2 = new Scanner(System.in);
+                    String userFlightIdChoice = scan2.nextLine();
                     System.out.println(flightController.getFlightById(userFlightIdChoice));
                     break;
 
                 case 3:
+                    System.out.print("Введите место назначения: ");
+                    Scanner scan3 = new Scanner(System.in);
+                    String userDestinationChoice = scan3.nextLine();
+
+                    System.out.print("Введите дату вылета: ");
+                    scan3 = new Scanner(System.in);
+                    String userFlightDateChoice = scan3.nextLine();
+
+                    System.out.print("Введите количество пассажиров: ");
+                    scan3 = new Scanner(System.in);
+                    int userPassengersNumberChoice = scan3.nextInt();
+
+                    flightController.displayRequestedFlights(userDestinationChoice, userFlightDateChoice, userPassengersNumberChoice);
+
+                    System.out.println("Введите номер рейса билеты на который хотите забронировать или 0(ноль) для возврата в главное меню");
+                    scan3 = new Scanner(System.in);
+                    try {
+                        int userBookingChoice = scan3.nextInt();
+                        break;
+                    } catch (Exception e) {
+                    }
+                    String userFlightId = scan3.nextLine();
+                    for (int i = 0; i < userPassengersNumberChoice; i++) {
+
+                        System.out.printf("Введите имя для пассажира № %d: ", i + 1);
+                        scan3 = new Scanner(System.in);
+                        String name = scan3.nextLine();
+
+                        System.out.printf("Введите фамилию для пассажира № %d: ", i + 1);
+                        scan3 = new Scanner(System.in);
+                        String surname = scan3.nextLine();
+
+                        bookingController.createBooking(userFlightId, name, surname);
+                    }
                     break;
                 case 4:
                     break;
                 case 5:
+                    System.out.print("Введите Ваше имя: ");
+                    Scanner scan5 = new Scanner(System.in);
+                    String userName = scan5.nextLine();
+
+                    System.out.print("Введите Вашу фамилию: ");
+                    String userSurname = scan5.nextLine();
+
+                    bookingController.displayUserBookings(userName, userSurname);
                     break;
                 case 6:
                     break;

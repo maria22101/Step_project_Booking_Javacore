@@ -7,8 +7,8 @@ public class BookingDAOImpl implements BookingDAO {
     private List<Booking> listBooking = new ArrayList<>();
 
     @Override
-    public void createBooking(String flightId, String passengerName, String passengerSurname, int passengersNumber) {
-        Booking newBooking = new Booking(flightId, passengerName, passengerSurname, passengersNumber);
+    public void createBooking(String flightId, String passengerName, String passengerSurname) {
+        Booking newBooking = new Booking(flightId, passengerName, passengerSurname);
         if (listBooking.isEmpty()) {
             newBooking.setBookingId(1);
         }else {
