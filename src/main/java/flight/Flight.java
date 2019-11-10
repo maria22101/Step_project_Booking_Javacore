@@ -16,7 +16,7 @@ public class Flight {
         this.flightId = flightId;
         this.destination = destination;
 
-        SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy hh:mm");
+        SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy HH:mm");
         try{
             this.departureTime = formatter.parse(departureTime);
         }catch (ParseException e) {
@@ -77,13 +77,13 @@ public class Flight {
     public String toString() {
         return flightId + "\t" +
                 destination + "\t" +
-                new SimpleDateFormat("dd.MM.yyyy hh:mm").format(departureTime) + "\t" +
+                new SimpleDateFormat("dd.MM.yyyy HH:mm").format(departureTime) + "\t" +
                 freeSeats + " seats available" +"\n"
                 + "--------------------------------------------------------------";
     }
 
     public String toShortString() {
         return destination + "\t" +
-                new SimpleDateFormat("dd.MM.yyyy hh:mm").format(departureTime);
+                new SimpleDateFormat("dd.MM.yyyy HH:mm").format(departureTime);
     }
 }
