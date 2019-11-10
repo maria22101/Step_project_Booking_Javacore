@@ -16,6 +16,14 @@ public class Booking {
         isBookingValid = true;
     }
 
+    public Booking(int bookingId, String flightId, String passengerName, String passengerSurname) {
+        this.bookingId = bookingId;
+        this.flightId = flightId;
+        this.passengerName = passengerName;
+        this.passengerSurname = passengerSurname;
+        isBookingValid = true;
+    }
+
     public String getFlightId() {
         return flightId;
     }
@@ -76,7 +84,7 @@ public class Booking {
     @Override
     public String toString() {
         return  bookingId + "\t" +
-                passengerName + " " +
+                passengerName + "\t" +
                 passengerSurname + "\t" +
                 flightId + "\t";
     }

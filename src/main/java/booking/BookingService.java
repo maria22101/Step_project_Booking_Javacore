@@ -6,6 +6,7 @@ import flight.FlightService;
 import java.io.IOException;
 import java.nio.file.*;
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class BookingService {
@@ -17,6 +18,10 @@ public class BookingService {
 
     public List<Booking> getAllBookings() {
         return bookingDAO.getAll();
+    }
+
+    public void extractBookingsFromFile(Scanner scanner) {
+        bookingDAO.extractBookingsFromFile(scanner);
     }
 
     public void updateBooking(Booking updatedBooking) {

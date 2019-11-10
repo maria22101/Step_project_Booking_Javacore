@@ -1,7 +1,7 @@
 package booking;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.FileNotFoundException;
+import java.util.*;
 
 public class BookingDAOImpl implements BookingDAO {
     private List<Booking> listBooking = new ArrayList<>();
@@ -22,6 +22,26 @@ public class BookingDAOImpl implements BookingDAO {
     @Override
     public List<Booking> getAll() {
         return listBooking;
+    }
+
+    @Override
+    public void extractBookingsFromFile(Scanner scanner) {
+        String line;
+        while (scanner.hasNextLine()) {
+            line = scanner.nextLine();
+            if (line.equals("--------------------------------------------------------------------------------")) {
+                continue;
+            }
+            Scanner innerScanner = new Scanner(line);
+            innerScanner.useDelimiter("\t");
+            int bookingId = innerScanner.nextInt();
+            String name = innerScanner.next();
+            String surname = innerScanner.next();
+            String flightId = innerScanner.next();
+            Booking booking = new Booking(bookingId, flightId, name, surname);
+
+            listBooking.add(booking);
+        }
     }
 
     @Override

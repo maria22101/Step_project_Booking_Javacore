@@ -4,6 +4,7 @@ import flight.FlightController;
 import flight.FlightService;
 
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class BookingController {
@@ -16,6 +17,10 @@ public class BookingController {
 
     public List<Booking> getAllBookings() {
         return bookingService.getAllBookings();
+    }
+
+    public void extractBookingsFromFile(Scanner scanner) {
+        bookingService.extractBookingsFromFile(scanner);
     }
 
     public void updateBooking(Booking updatedBooking) {

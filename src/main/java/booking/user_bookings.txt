@@ -1,2 +1,4 @@
-1	Mari Bilous	FR 3678	London	22.11.2019 07:20	booking status: VALID
+4	Beata	Hausani	PS 423	Berlin	22.11.2019 01:20	booking status: VALID
+--------------------------------------------------------------------------------
+6	Beata	Hausani	FR 3678	London	22.11.2019 07:20	booking status: VALID
 --------------------------------------------------------------------------------

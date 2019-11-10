@@ -1,5 +1,6 @@
 package console;
 
+import booking.Booking;
 import booking.BookingController;
 import flight.Flight;
 import flight.FlightController;
@@ -7,6 +8,7 @@ import flight.FlightController;
 import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -35,9 +37,21 @@ public class Main {
         }
     }
 
+    static void copyBookingsFromFile() {
+        try {
+            Scanner scanner = new Scanner(new FileReader("C:/Users/HP/IdeaProjects/Step_project_Booking_Javacore/src/main/java/booking/user_bookings.txt"));
+            bookingController.extractBookingsFromFile(scanner);
+        } catch (InputMismatchException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) {
         printMenu();
         copyFlightsFromFile();
+        copyBookingsFromFile();
 
         Scanner scanner = new Scanner(System.in);
         int userChoice = scanner.nextInt();
