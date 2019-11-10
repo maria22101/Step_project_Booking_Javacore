@@ -11,11 +11,11 @@ public class BookingDAOImpl implements BookingDAO {
         Booking newBooking = new Booking(flightId, passengerName, passengerSurname);
         if (listBooking.isEmpty()) {
             newBooking.setBookingId(1);
-        }else {
+        } else {
             int lastBookingIndex = listBooking.size() - 1;
             int newBookingId = listBooking.get(lastBookingIndex).getBookingId() + 1;
             newBooking.setBookingId(newBookingId);
-        };
+        }
         listBooking.add(newBooking);
     }
 

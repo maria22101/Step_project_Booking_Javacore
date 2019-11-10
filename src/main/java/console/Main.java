@@ -5,6 +5,8 @@ import flight.Flight;
 import flight.FlightController;
 
 import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class Main {
@@ -39,6 +41,8 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
         int userChoice = scanner.nextInt();
+        String userName = null;
+        String userSurname = null;
 
         while (userChoice != 6) {
             switch (userChoice) {
@@ -80,13 +84,13 @@ public class Main {
 
                         System.out.printf("Введите имя для пассажира № %d: ", i + 1);
                         scan3 = new Scanner(System.in);
-                        String name = scan3.nextLine();
+                        userName = scan3.nextLine();
 
                         System.out.printf("Введите фамилию для пассажира № %d: ", i + 1);
                         scan3 = new Scanner(System.in);
-                        String surname = scan3.nextLine();
+                        userSurname = scan3.nextLine();
 
-                        bookingController.createBooking(userFlightId, name, surname);
+                        bookingController.createBooking(userFlightId, userName, userSurname);
                     }
                     break;
 
@@ -100,15 +104,12 @@ public class Main {
                 case 5:
                     System.out.print("Введите Ваше имя: ");
                     Scanner scan5 = new Scanner(System.in);
-                    String userName = scan5.nextLine();
+                    userName = scan5.nextLine();
 
                     System.out.print("Введите Вашу фамилию: ");
-                    String userSurname = scan5.nextLine();
+                    userSurname = scan5.nextLine();
 
                     bookingController.displayUserBookings(userName, userSurname, flightController);
-                    break;
-
-                case 6:
                     break;
 
                 default:
@@ -117,6 +118,9 @@ public class Main {
 
             printMenu();
             userChoice = scanner.nextInt();
+            if (userChoice == 6) {
+                bookingController.loadUserBookingsToFile(userName, userSurname, flightController);
+            }
         }
     }
 }

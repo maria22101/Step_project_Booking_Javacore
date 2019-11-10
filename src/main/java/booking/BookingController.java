@@ -33,4 +33,8 @@ public class BookingController {
     public void displayUserBookings(String passengerName, String passengerSurname, FlightController flightController) {
         bookingService.displayUserBookings(passengerName, passengerSurname, flightController);
     }
+
+    public void loadUserBookingsToFile(String passengerName, String passengerSurname, FlightController flightController) {
+        bookingService.loadUserBookingsToFile(passengerName, passengerSurname, flightController);
+    }
 }
