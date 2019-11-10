@@ -89,8 +89,14 @@ public class Main {
                         bookingController.createBooking(userFlightId, name, surname);
                     }
                     break;
+
                 case 4:
+                    System.out.print("Введите ID бронирования которое хотите отменить: ");
+                    Scanner scan4 = new Scanner(System.in);
+                    int userBookingIdToDelete = scan4.nextInt();
+                    bookingController.deleteBooking(userBookingIdToDelete);
                     break;
+
                 case 5:
                     System.out.print("Введите Ваше имя: ");
                     Scanner scan5 = new Scanner(System.in);
@@ -101,8 +107,10 @@ public class Main {
 
                     bookingController.displayUserBookings(userName, userSurname, flightController);
                     break;
+
                 case 6:
                     break;
+
                 default:
                     System.out.println("User has not made his decision");
             }
