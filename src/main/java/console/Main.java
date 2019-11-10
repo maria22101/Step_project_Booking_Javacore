@@ -133,7 +133,7 @@ public class Main {
             printMenu();
             userChoice = scanner.nextInt();
             if (userChoice == 6) {
-                bookingController.loadUserBookingsToFile(userName, userSurname, flightController);
+                bookingController.loadBookingsToFile(userName, userSurname, flightController);
             }
         }
     }

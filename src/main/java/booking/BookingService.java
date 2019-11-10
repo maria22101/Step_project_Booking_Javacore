@@ -50,7 +50,7 @@ public class BookingService {
                 });
     }
 
-    void loadUserBookingsToFile(String passengerName, String passengerSurname, FlightController flightController) {
+    void loadBookingsToFile(String passengerName, String passengerSurname, FlightController flightController) {
         Path path = Paths.get("C:/Users/HP/IdeaProjects/Step_project_Booking_Javacore/src/main/java/booking/user_bookings.txt");
         try {
             Files.write(path, "".getBytes());
@@ -58,7 +58,7 @@ public class BookingService {
             System.out.println("Создание и подготовка файла к записи не удалась");
         }
 
-        getUserBookings(passengerName, passengerSurname)
+        getAllBookings()
                 .stream()
                 .forEach(booking -> {
                     try {
