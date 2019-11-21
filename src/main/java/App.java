@@ -1,17 +1,11 @@
-package console;
-
-import booking.Booking;
 import booking.BookingController;
-import flight.Flight;
 import flight.FlightController;
 
 import java.io.*;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Main {
+public class App {
 
     static FlightController flightController = new FlightController();
     static BookingController bookingController = new BookingController();

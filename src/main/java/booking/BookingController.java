@@ -5,7 +5,6 @@ import flight.FlightService;
 
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class BookingController {
     private BookingService bookingService = new BookingService();
